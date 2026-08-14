@@ -1,0 +1,346 @@
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   BACKGROUND LINE
+========================================= */
+
+.timeline__line {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 2.5rem;
+
+    width: 1px;
+
+    background:
+        var(--color-border);
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* =========================================
+   PROGRESS LINE
+========================================= */
+
+.timeline__line-progress {
+    position: absolute;
+
+    top: 0;
+
+    left: 2.5rem;
+
+    width: 2px;
+
+    background:
+        var(--color-primary);
+
+    transform:
+        translateX(-50%);
+
+    transform-origin:
+        top center;
+
+    z-index: 1;
+
+    transition:
+        height 100ms linear;
+}
+
+
+/* =========================================
+   ITEMS
+========================================= */
+
+.timeline__items {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.timeline-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        5rem
+        minmax(0, 1fr);
+
+    gap: 2rem;
+
+    padding-bottom: 4rem;
+}
+
+
+/* =========================================
+   MARKER
+========================================= */
+
+.timeline-item__marker {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.timeline-item__dot {
+    position: relative;
+
+    z-index: 3;
+
+    width: 0.7rem;
+    height: 0.7rem;
+
+    margin-top: 0.35rem;
+
+    border:
+        2px solid
+        var(--color-primary);
+
+    border-radius: 50%;
+
+    background:
+        var(--color-background);
+
+    transition:
+        transform 400ms ease,
+        background 400ms ease,
+        box-shadow 400ms ease;
+}
+
+
+/* Active dot */
+
+.timeline-item--active
+.timeline-item__dot {
+    background:
+        var(--color-primary);
+
+    transform:
+        scale(1.35);
+
+    box-shadow:
+        0 0 0 6px
+        rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================
+   CONTENT CARD
+========================================= */
+
+.timeline-item__content {
+    position: relative;
+
+    padding: 2rem;
+
+    border:
+        1px solid gainsboro;
+
+    border-radius: 1.75rem;
+
+    background:
+        rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transition:
+        transform 400ms
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            ),
+        border-color 400ms ease,
+        box-shadow 400ms ease;
+}
+
+
+/* Card hover */
+
+.timeline-item__content:hover {
+    transform:
+        translateX(8px);
+
+    border-color:
+        var(--color-primary);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   YEAR
+========================================= */
+
+.timeline-item__year {
+    margin-bottom: 0.75rem;
+
+    color:
+        var(--color-primary);
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.timeline-item__title {
+    margin: 0 0 0.5rem;
+
+    color:
+        var(--color-secondary);
+
+    font-size:
+        clamp(
+            1.4rem,
+            3vw,
+            2.25rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+
+/* =========================================
+   INSTITUTION
+========================================= */
+
+.timeline-item__institution {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color:
+        var(--color-secondary);
+
+    font-size: 0.85rem;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.timeline-item__description {
+    max-width: 650px;
+
+    margin: 0 0 1.5rem;
+
+    color:
+        var(--color-secondary);
+
+    font-size: 0.85rem;
+
+    line-height: 1.7;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   TAGS
+========================================= */
+
+.timeline-item__tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.4rem;
+}
+
+
+.timeline-item__tags span {
+    padding:
+        0.4rem
+        0.75rem;
+
+    background-color: var(--color-primary-light);
+
+    border-radius: 999px;
+
+    color:
+        var(--color-secondary);
+
+    font-size: 0.65rem;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .timeline__line,
+    .timeline__line-progress {
+        left: 0.75rem;
+    }
+
+
+    .timeline-item {
+        grid-template-columns:
+            1.5rem
+            minmax(0, 1fr);
+
+        gap: 1rem;
+
+        padding-bottom: 2rem;
+    }
+
+
+    .timeline-item__content {
+        padding: 1.5rem;
+
+        border-radius: 1.5rem;
+    }
+
+
+    .timeline-item__content:hover {
+        transform:
+            translateX(4px);
+    }
+
+}

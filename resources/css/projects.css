@@ -1,0 +1,260 @@
+.projects {
+    padding: 8rem 2rem;
+}
+
+.projects__container {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.projects__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 3rem;
+
+    margin-bottom: 5rem;
+}
+
+.projects__eyebrow {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.projects__title {
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: clamp(
+        2.5rem,
+        5vw,
+        5rem
+    );
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+.projects__description {
+    max-width: 320px;
+
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.projects__grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: clamp(
+        1rem,
+        2vw,
+        2rem
+    );
+}
+
+
+/* =========================================
+   SECONDARY PROJECTS
+========================================= */
+
+.project--2 .project__image,
+.project--3 .project__image {
+    aspect-ratio: 4 / 3;
+}
+
+/* =========================================
+   SEE MORE
+========================================= */
+
+.projects__footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 4rem;
+}
+
+.projects__see-more {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 0.9rem 1.25rem;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 999px;
+
+    color: var(--color-secondary);
+
+    background:
+        rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+
+    overflow: hidden;
+
+    transition:
+        color 350ms ease,
+        background 350ms ease,
+        border-color 350ms ease,
+        transform 350ms
+            cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projects__see-more::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--color-primary);
+
+    transform:
+        translateX(-101%);
+
+    transition:
+        transform 450ms
+            cubic-bezier(0.16, 1, 0.3, 1);
+
+    z-index: -1;
+}
+
+.projects__see-more:hover {
+    color: white;
+
+    border-color: var(--color-primary);
+
+    transform: translateY(-3px);
+}
+
+.projects__see-more:hover::before {
+    transform: translateX(0);
+}
+
+
+/* Arrow */
+
+.projects__see-more-arrow {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 1.75rem;
+    height: 1.75rem;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    transition:
+        transform 350ms
+            cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projects__see-more:hover
+.projects__see-more-arrow {
+    transform:
+        rotate(45deg);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .projects {
+        padding: 6rem 1.5rem;
+    }
+
+    .projects__header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 4rem;
+    }
+
+    .projects__grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 1.25rem;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .projects {
+        padding: 5rem 1.25rem;
+    }
+
+    .projects__grid {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+    }
+
+    .projects__footer {
+        justify-content: flex-start;
+
+        margin-top: 3rem;
+    }
+
+}

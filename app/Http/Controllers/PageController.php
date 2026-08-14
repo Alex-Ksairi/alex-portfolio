@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Inertia\Inertia;
+
+class PageController extends Controller
+{
+    public function home()
+    {
+        return Inertia::render('Home');
+    }
+
+    public function about()
+    {
+        return Inertia::render('About');
+    }
+
+    public function projects()
+    {
+        return Inertia::render('Projects');
+    }
+
+    public function contact()
+    {
+        return Inertia::render('Contact');
+    }
+
+    public function skills()
+    {
+        return Inertia::render('Skills');
+    }
+
+    public function faq()
+    {
+        return Inertia::render('Faq');
+    }
+}

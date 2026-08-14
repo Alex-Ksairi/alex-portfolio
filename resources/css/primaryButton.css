@@ -1,0 +1,104 @@
+.primary-button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.75rem;
+
+    padding:
+        0.9rem
+        1rem;
+
+    border: 1px solid var(--color-primary);
+
+    border-radius: 999px;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    overflow: hidden;
+
+    transition:
+        transform 400ms
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            ),
+        box-shadow 400ms ease;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.primary-button__text {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.primary-button__arrow {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--color-primary);
+
+    font-size: 0.8rem;
+
+    transition:
+        transform 400ms
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            );
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.primary-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.12);
+}
+
+.primary-button:hover
+.primary-button__arrow {
+    transform: rotate(45deg);
+}

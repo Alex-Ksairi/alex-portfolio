@@ -1,0 +1,46 @@
+@import "navbar";
+@import "hero";
+@import "about";
+@import "progress";
+@import "projects";
+@import "card";
+@import "PrimaryButton";
+@import "timeline";
+@import "education";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+
+    :root {
+        --color-primary: #2563eb;
+        --color-secondary: #0f172a;
+        --color-primary-light: #2564eb21;
+        --color-accent: #14b8a6;
+
+        --color-background: #f8fafc;
+    }
+
+    body {
+        @apply bg-background text-secondary font-sans;
+        width: 100%;
+        max-width: 1250px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    h1 {
+        @apply text-3xl font-bold tracking-tight;
+    }
+
+    h2 {
+        @apply text-3xl font-semibold;
+    }
+
+    p {
+        @apply text-gray-600 leading-relaxed;
+    }
+
+}

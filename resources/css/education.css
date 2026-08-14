@@ -1,0 +1,102 @@
+/* =========================================
+   EDUCATION
+========================================= */
+
+.education {
+    padding:
+        8rem 2rem;
+}
+
+
+.education__container {
+    width: 100%;
+
+    max-width: 90rem;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.education__header {
+    max-width: 700px;
+
+    margin-bottom: 5rem;
+}
+
+
+.education__eyebrow {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color:
+        var(--color-primary);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+
+.education__title {
+    margin: 0 0 1.5rem;
+
+    color:
+        var(--color-secondary);
+
+    font-size:
+        clamp(
+            2.5rem,
+            5vw,
+            5rem
+        );
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+
+.education__description {
+    max-width: 500px;
+
+    margin: 0;
+
+    color:
+        var(--color-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .education {
+        padding:
+            6rem 1.25rem;
+    }
+
+
+    .education__header {
+        margin-bottom: 3rem;
+    }
+
+}

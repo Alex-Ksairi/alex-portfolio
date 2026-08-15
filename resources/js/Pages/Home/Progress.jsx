@@ -4,15 +4,15 @@ const stats = [
         label: "Years of experience",
     },
     {
-        number: "23+",
+        number: "18+",
         label: "Projects completed",
     },
     {
-        number: "19K+",
+        number: "22K+",
         label: "Hours of development",
     },
     {
-        number: "11+",
+        number: "15+",
         label: "Clients & collaborations",
     },
 ];

@@ -54,7 +54,7 @@
 
     margin-bottom: 1.5rem;
 
-    color: var(--color-primary);
+    color: var(--color-accent);
 
     font-size: 0.85rem;
     font-weight: 600;
@@ -87,7 +87,7 @@
 
 
 .hero__title span {
-    display: block;
+    display: inline-block;
 
     color: var(--color-primary);
 }
@@ -197,18 +197,25 @@
     white-space: nowrap;
 }
 
-
 .hero__keyword--top {
     top: 10%;
-    left: -5%;
+    left: 5%;
 }
 
-
 .hero__keyword--right {
-    top: 40%;
+    top: 65%;
     right: -5%;
 }
 
+.hero__keyword--left {
+    top: 20%;
+    right: 5%;
+}
+
+.hero__keyword--center {
+    top: 50%;
+    right: 50%;
+}
 
 .hero__keyword--bottom {
     bottom: 10%;

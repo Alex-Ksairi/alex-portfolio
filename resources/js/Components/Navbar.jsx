@@ -7,11 +7,11 @@ export default function Navbar() {
 
     const links = [
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
+        { label: "About", href: "/#" },
         { label: "Projects", href: "/projects" },
-        { label: "Contact", href: "/contact" },
-        { label: "Skills", href: "/skills" },
-        { label: "FAQ", href: "/faq" },
+        { label: "Contact", href: "/#" },
+        { label: "Skills", href: "/#" },
+        { label: "FAQ", href: "#" },
     ];
 
     const closeMenu = () => {

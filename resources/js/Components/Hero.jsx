@@ -16,21 +16,20 @@ export default function Hero() {
                 <div className="hero__text">
 
                     <span className="hero__eyebrow">
-                        Software Developer
+                        Fullstack Software Developer
                     </span>
 
 
                     <h1 className="hero__title">
-                        I build digital
-                        <span> experiences </span>
-                        that matter.
+                        Where code meets <span> intelligence </span> —
+                        From concept to <span> reality </span>
                     </h1>
 
 
                     <p className="hero__description">
-                        I build modern web applications and
-                        digital experiences with a focus on
-                        clean code, usability and thoughtful design.
+                        From “what if?” to “it's done.” 
+                        Every project has its own story. 
+                        My work tells mine accros the stack. Ready to start yours?
                     </p>
 
                 </div>
@@ -53,14 +52,20 @@ export default function Hero() {
                             Fullstack
                         </span>
 
-
                         <span className="hero__keyword hero__keyword--right">
-                            React
+                            React/ JS
                         </span>
 
+                        <span className="hero__keyword hero__keyword--left">
+                            Laravel/ PHP
+                        </span>
+
+                        <span className="hero__keyword hero__keyword--center">
+                            SQL/ GraphQL
+                        </span>
 
                         <span className="hero__keyword hero__keyword--bottom">
-                            PHP
+                            CSS
                         </span>
 
                     </div>
@@ -78,10 +83,10 @@ export default function Hero() {
 
 
                     <Link
-                        href="/contact"
+                        href="#"
                         className="hero__button hero__button--secondary"
                     >
-                        Get in touch
+                        Let's connect
                     </Link>
 
                 </div>

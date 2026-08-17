@@ -7,6 +7,7 @@
 @import "PrimaryButton";
 @import "timeline";
 @import "education";
+@import "testimonials";
 
 @tailwind base;
 @tailwind components;

@@ -8,6 +8,7 @@
 @import "timeline";
 @import "education";
 @import "testimonials";
+@import "faq";
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,402 @@
+/* =========================================
+   FAQ
+========================================= */
+
+.faq {
+    padding: 8rem 2rem;
+}
+
+.faq__container {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.faq__header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 3rem;
+
+    margin-bottom: 5rem;
+}
+
+.faq__eyebrow {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.faq__title {
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: clamp(
+        2.5rem,
+        5vw,
+        5rem
+    );
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+.faq__description {
+    max-width: 300px;
+
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   LIST
+========================================= */
+
+.faq__list {
+    border-top:
+        1px solid
+        rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================================
+   ITEM
+========================================= */
+
+.faq__item {
+    border-bottom:
+        1px solid
+        rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.faq__question {
+    display: grid;
+
+    grid-template-columns:
+        4rem
+        minmax(0, 1fr)
+        3rem;
+
+    align-items: center;
+
+    width: 100%;
+
+    padding: 2rem 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--color-secondary);
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.faq__number {
+    color: var(--color-primary);
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    line-height: 1;
+
+    opacity: 0.6;
+}
+
+.faq__question-text {
+    color: var(--color-secondary);
+
+    font-size: clamp(
+        1.1rem,
+        2vw,
+        1.5rem
+    );
+
+    font-weight: 400;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.faq__icon {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    margin-left: auto;
+
+    border:
+        1px solid
+        rgba(0, 0, 0, 0.1);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--color-secondary);
+
+    flex-shrink: 0;
+
+    transition:
+        background 300ms ease,
+        border-color 300ms ease,
+        color 300ms ease;
+}
+
+
+/* =========================================
+   ICON LINES
+========================================= */
+
+.faq__icon-line {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 0.75rem;
+    height: 1px;
+
+    background: currentColor;
+
+    transform-origin: center;
+
+    transition:
+        transform 400ms
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* Horizontal line */
+
+.faq__icon-line:first-child {
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+}
+
+
+/* Vertical line */
+
+.faq__icon-line:last-child {
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.faq__question:hover .faq__icon {
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: white;
+}
+
+
+/* =========================================
+   ANSWER
+========================================= */
+
+.faq__answer {
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    transition:
+        grid-template-rows 500ms
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq__answer > div {
+    min-height: 0;
+
+    max-width: 700px;
+
+    padding-left: 4rem;
+
+    color: var(--color-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+    opacity: 0.55;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   OPEN STATE
+========================================= */
+
+.faq__item--open .faq__answer {
+    grid-template-rows: 1fr;
+}
+
+.faq__item--open .faq__answer > div {
+    padding-bottom: 2rem;
+}
+
+
+/* Active icon */
+
+.faq__item--open .faq__icon {
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: white;
+}
+
+
+/* Plus → X */
+
+.faq__item--open .faq__icon-line:first-child {
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+}
+
+.faq__item--open .faq__icon-line:last-child {
+    transform:
+        translate(-50%, -50%)
+        rotate(135deg);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .faq {
+        padding: 6rem 1.5rem;
+    }
+
+    .faq__header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 1.5rem;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .faq {
+        padding: 5rem 1.25rem;
+    }
+
+    .faq__header {
+        gap: 1.5rem;
+
+        margin-bottom: 3rem;
+    }
+
+    .faq__question {
+        grid-template-columns:
+            2.5rem
+            minmax(0, 1fr)
+            2.5rem;
+
+        gap: 0.5rem;
+
+        padding: 1.5rem 0;
+    }
+
+    .faq__question-text {
+        font-size: 1rem;
+    }
+
+    .faq__icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .faq__icon-line {
+        width: 0.65rem;
+    }
+
+    .faq__answer > div {
+        padding-left: 2.5rem;
+
+        font-size: 0.85rem;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faq__answer,
+    .faq__icon,
+    .faq__icon-line {
+        transition: none;
+    }
+
+}

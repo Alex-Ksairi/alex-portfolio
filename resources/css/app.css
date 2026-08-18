@@ -9,6 +9,7 @@
 @import "education";
 @import "testimonials";
 @import "faq";
+@import "contact";
 
 @tailwind base;
 @tailwind components;

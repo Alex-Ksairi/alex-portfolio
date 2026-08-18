@@ -7,6 +7,7 @@ import Projects from "./Projects/Projects";
 import Education from "@/Pages/Sections/Education";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
+import Contact from "@/components/Contact";
 
 export default function Home() {
     return (
@@ -26,6 +27,8 @@ export default function Home() {
             <Testimonials />
 
             <Faq />
+
+            <Contact />
         </>
     );
 }

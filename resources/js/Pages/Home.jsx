@@ -8,6 +8,7 @@ import Education from "@/Pages/Sections/Education";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
+import Skills from "@/components/Skills";
 
 export default function Home() {
     return (
@@ -17,6 +18,8 @@ export default function Home() {
             <Hero />
 
             <About />
+
+            <Skills />
 
             <Progress />
 

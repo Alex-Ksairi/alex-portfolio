@@ -1,0 +1,353 @@
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills {
+    padding: 8rem 0;
+
+    overflow: hidden;
+}
+
+.skills__container {
+    width: 100%;
+    max-width: 90rem;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.skills__header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 3rem;
+
+    padding: 0 2rem;
+
+    margin-bottom: 5rem;
+}
+
+.skills__eyebrow {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+.skills__title {
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: clamp(
+        2.5rem,
+        5vw,
+        5rem
+    );
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+.skills__description {
+    max-width: 300px;
+
+    margin: 0;
+
+    color: var(--color-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   MARQUEE
+========================================= */
+
+.skills__marquee {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    border-top:
+        1px solid
+        rgba(0, 0, 0, 0.08);
+
+    border-bottom:
+        1px solid
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   ROW
+========================================= */
+
+.skills__row {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+
+    padding: 1.5rem 0;
+
+    border-bottom:
+        1px solid
+        rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+}
+
+.skills__row:last-child {
+    border-bottom: 0;
+}
+
+
+/* =========================================
+   TRACK
+========================================= */
+
+.skills__track {
+    display: flex;
+
+    width: max-content;
+
+    flex-shrink: 0;
+
+    animation:
+        skills-marquee
+        var(--marquee-speed)
+        linear
+        infinite;
+}
+
+
+/* Reverse direction */
+
+.skills__row--right .skills__track {
+    animation-direction: reverse;
+}
+
+
+/* =========================================
+   SKILL
+========================================= */
+
+.skills__skill {
+    display: flex;
+
+    align-items: center;
+
+    color: var(--color-secondary);
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        4.5rem
+    );
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -0.055em;
+
+    white-space: nowrap;
+
+    transition:
+        color 300ms ease;
+}
+
+
+/* =========================================
+   SEPARATOR
+========================================= */
+
+.skills__separator {
+    margin: 0 2rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.6em;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.skills__marquee:hover .skills__track {
+    animation-play-state: paused;
+}
+
+.skills__skill:hover {
+    color: var(--color-primary);
+}
+
+
+/* =========================================
+   FADE EDGES
+========================================= */
+
+.skills__marquee::before,
+.skills__marquee::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 8rem;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+.skills__marquee::before {
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            var(--color-background),
+            transparent
+        );
+}
+
+.skills__marquee::after {
+    right: 0;
+
+    background:
+        linear-gradient(
+            to left,
+            var(--color-background),
+            transparent
+        );
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes skills-marquee {
+
+    from {
+        transform:
+            translateX(0);
+    }
+
+    to {
+        transform:
+            translateX(-50%);
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .skills {
+        padding: 6rem 0;
+    }
+
+    .skills__header {
+        padding: 0 1.5rem;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 1.5rem;
+
+        margin-bottom: 4rem;
+    }
+
+    .skills__row {
+        padding: 1.25rem 0;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .skills {
+        padding: 5rem 0;
+    }
+
+    .skills__header {
+        padding: 0 1.25rem;
+
+        margin-bottom: 3rem;
+    }
+
+    .skills__skill {
+        font-size: 2rem;
+    }
+
+    .skills__separator {
+        margin: 0 1.25rem;
+    }
+
+    .skills__row {
+        padding: 1rem 0;
+    }
+
+    .skills__marquee::before,
+    .skills__marquee::after {
+        width: 3rem;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .skills__track {
+        animation: none;
+    }
+
+}

@@ -10,6 +10,8 @@
 @import "testimonials";
 @import "faq";
 @import "contact";
+@import "skills";
+@import "footer";
 
 @tailwind base;
 @tailwind components;

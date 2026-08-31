@@ -3,36 +3,40 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Project;
+use App\Models\Education;
+use App\Models\Testimonial;
+use App\Models\Faq;
 
 class PageController extends Controller
 {
     public function home()
     {
-        return Inertia::render('Home');
-    }
+        $projects = Project::with('skills')
+            ->where('featured', true)
+            ->orderBy('sort_order')
+            ->get();
+        
+        $educations = Education::orderBy('sort_order')->get();
+        $testimonials = Testimonial::orderBy('sort_order')->get();
+        $faqs = Faq::orderBy('sort_order')->get();
 
-    public function about()
-    {
-        return Inertia::render('About');
+        return Inertia::render('Home', [
+            'projects' => $projects,
+            'educations' => $educations,
+            'testimonials' => $testimonials,
+            'faqs' => $faqs,
+        ]);
     }
 
     public function projects()
     {
-        return Inertia::render('Projects');
-    }
+        $projects = Project::with('skills')
+            ->orderBy('sort_order')
+            ->get();
 
-    public function contact()
-    {
-        return Inertia::render('Contact');
-    }
-
-    public function skills()
-    {
-        return Inertia::render('Skills');
-    }
-
-    public function faq()
-    {
-        return Inertia::render('Faq');
+        return Inertia::render('Projects', [
+            'projects' => $projects,
+        ]);
     }
 }

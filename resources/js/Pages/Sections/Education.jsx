@@ -1,69 +1,6 @@
 import Timeline from "@/Components/Timeline";
 
-const education = [
-
-    {
-        year: "2024 — 2026",
-
-        title:
-            "Fachinformatiker für Anwendungsentwicklung",
-
-        institution:
-            "Umschulung / IHK",
-
-        description:
-            "Two-year professional retraining focused on software development, databases, system integration and modern development workflows.",
-
-        tags: [
-            "Python",
-            "Java",
-            "JavaScript",
-            "SQL",
-            "Scrum",
-        ],
-    },
-
-
-    {
-        year: "2026",
-
-        title:
-            "IHK Abschluss",
-
-        institution:
-            "Handelskammer Hamburg",
-
-        description:
-            "Successfully completed the IHK qualification as Fachinformatiker für Anwendungsentwicklung.",
-
-        tags: [
-            "Software Development",
-            "IHK",
-        ],
-    },
-
-    {
-        year: "2021",
-
-        title:
-            "Web Development",
-
-        institution:
-            "DCI Hamburg",
-
-        description:
-            "Successfully completed the IHK qualification as Fachinformatiker für Anwendungsentwicklung.",
-
-        tags: [
-            "Software Development",
-            "IHK",
-        ],
-    },
-
-];
-
-
-export default function Education() {
+export default function Education({ educations }) {
 
     return (
 
@@ -101,7 +38,7 @@ export default function Education() {
                 {/* Timeline */}
 
                 <Timeline
-                    items={education}
+                    educations={educations}
                 />
 
             </div>

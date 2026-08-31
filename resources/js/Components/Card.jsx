@@ -3,11 +3,13 @@ export default function Card({ project, index }) {
         <article className="project-card">
 
             <a
-                href={project.link}
+                href={project.url}
                 className="project-card__image"
+                target="_blank"
+                rel="noreferrer"
             >
                 <img
-                    src={project.image}
+                    src={project.image ? project.image : "https://static.thenounproject.com/png/5191452-200.png"}
                     alt={project.title}
                 />
 
@@ -20,41 +22,35 @@ export default function Card({ project, index }) {
                 </span>
             </a>
 
-
             <div className="project-card__content">
 
                 <div className="project-card__meta">
 
                     <span>
-                        {project.category}
+                        {project.complete ? "Completed" : "In Progress"}
                     </span>
 
                     <span>
-                        {project.year}
+                        {new Date(project.created_at).getFullYear()}
                     </span>
 
                 </div>
-
 
                 <h3 className="project-card__title">
                     {project.title}
                 </h3>
 
-
                 <p className="project-card__description">
                     {project.description}
                 </p>
 
-
                 <div className="project-card__technologies">
 
-                    {project.technologies.map(
-                        (technology) => (
-                            <span key={technology}>
-                                {technology}
-                            </span>
-                        )
-                    )}
+                    {project.skills.map((skill) => (
+                        <span key={skill.id}>
+                            {skill.name}
+                        </span>
+                    ))}
 
                 </div>
 

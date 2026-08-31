@@ -1,34 +1,6 @@
 import { useState } from "react";
 
-const faqs = [
-    {
-        question: "What kind of projects do you work on?",
-        answer:
-            "I mainly work on modern web applications, websites, and digital products. My focus is on frontend development with React and JavaScript, while also working with backend technologies such as PHP, Laravel, SQL, and APIs.",
-    },
-    {
-        question: "What technologies do you work with?",
-        answer:
-            "My core frontend technologies are HTML, CSS, JavaScript, and React. On the backend, I work with PHP, Laravel, SQL, and databases. I also have experience with tools such as Git, Webflow, Bubble.io, and Figma.",
-    },
-    {
-        question: "Are you available for freelance projects?",
-        answer:
-            "Yes. I'm open to freelance projects as well as long-term employment opportunities. Feel free to get in touch and tell me a little about your project.",
-    },
-    {
-        question: "How do you approach a new project?",
-        answer:
-            "I first focus on understanding the goals, requirements, and users. From there I break the project into manageable steps, establish the technical approach, and iterate toward a clean and maintainable solution.",
-    },
-    {
-        question: "Are you open to remote work?",
-        answer:
-            "Yes. I'm open to remote and hybrid opportunities. I'm based in Hamburg and am also open to opportunities with companies outside Hamburg.",
-    },
-];
-
-export default function FAQ() {
+export default function FAQ({ faqs }) {
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggleFAQ = (index) => {
@@ -72,7 +44,7 @@ export default function FAQ() {
                                         ? "faq__item--open"
                                         : ""
                                 }`}
-                                key={faq.question}
+                                key={faq.faq_question}
                             >
 
                                 <button
@@ -90,7 +62,7 @@ export default function FAQ() {
                                     </span>
 
                                     <span className="faq__question-text">
-                                        {faq.question}
+                                        {faq.faq_question}
                                     </span>
 
                                     <span className="faq__icon">
@@ -102,7 +74,7 @@ export default function FAQ() {
 
                                 <div className="faq__answer">
                                     <div>
-                                        {faq.answer}
+                                        {faq.faq_answer}
                                     </div>
                                 </div>
 

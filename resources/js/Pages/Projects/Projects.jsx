@@ -2,55 +2,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 
 import Card from "@/Components/Card";
 
-const projects = [
-    {
-        title: "VJF Website",
-        category: "Web Development",
-        year: "2026",
-        description:
-            "Modernization and redesign of a website with a focus on usability, structure and a contemporary digital experience.",
-        technologies: [
-            "WordPress",
-            "UI/UX",
-            "JavaScript",
-        ],
-        image: "/images/projects/vjf.webp",
-        link: "#",
-    },
-
-    {
-        title: "ELAM Solutions",
-        category: "Web Development",
-        year: "2025",
-        description:
-            "A modern web presence focused on a clean interface, responsive design and a strong user experience.",
-        technologies: [
-            "Webflow",
-            "JavaScript",
-            "UI/UX",
-        ],
-        image: "/images/projects/elam-solutions.webp",
-        link: "#",
-    },
-
-    {
-        title: "International Money Transfer",
-        category: "Web Development",
-        year: "2025",
-        description:
-            "A modern digital experience for an international money transfer service.",
-        technologies: [
-            "Webflow",
-            "JavaScript",
-            "UI/UX",
-        ],
-        image: "/images/projects/imt.webp",
-        link: "#",
-    },
-];
-
-
-export default function Projects() {
+export default function Projects({ projects }) {
 
     return (
 

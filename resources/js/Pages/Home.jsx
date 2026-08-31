@@ -10,7 +10,7 @@ import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
 
-export default function Home() {
+export default function Home({ projects, educations, testimonials, faqs }) {
     return (
         <>
             <Head title="Home" />
@@ -23,13 +23,13 @@ export default function Home() {
 
             <Progress />
 
-            <Projects />
+            <Projects projects={projects} />
 
-            <Education />
+            <Education educations={educations} />
 
-            <Testimonials />
+            <Testimonials testimonials={testimonials} />
 
-            <Faq />
+            <Faq faqs={faqs}/>
 
             <Contact />
         </>

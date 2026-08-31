@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import TimelineItem from "./TimelineItem";
 
 
-export default function Timeline({ items }) {
+export default function Timeline({ educations = [] }) {
 
     const timelineRef = useRef(null);
 
@@ -46,10 +46,8 @@ export default function Timeline({ items }) {
             const distance =
                 rect.height + start - end;
 
-
             const current =
                 start - rect.top;
-
 
             const percentage =
                 (current / distance) * 100;
@@ -69,7 +67,6 @@ export default function Timeline({ items }) {
             handleScroll,
             { passive: true }
         );
-
 
         handleScroll();
 
@@ -112,13 +109,13 @@ export default function Timeline({ items }) {
 
             <div className="timeline__items">
 
-                {items.map((item, index) => (
+                {educations.map((education, index) => (
 
                     <TimelineItem
-                        key={`${item.year}-${item.title}`}
-                        {...item}
+                        key={education.id}
+                        education={education}
                         index={index}
-                        total={items.length}
+                        total={educations.length}
                         progress={progress}
                     />
 

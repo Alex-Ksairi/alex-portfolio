@@ -1,105 +1,241 @@
 import { useState } from "react";
 
-const testimonials = [
-    {
-        quote:
-            "Alex exemplifies volunteer commitment and professionalism. As the manager of our website vjf.de, he combines technical expertise, creativity, and heartfelt passion for our organization and its goals. His dedication goes far beyond the usual, making him an invaluable asset. Working with Alex means gaining not just an expert but a reliable and solutions-driven team player. Highly recommended!",
-        name: "Jonas Richter",
-        role: "Business Manager",
-        company: "VJF",
-    },
-    {
-        quote:
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        name: "Max Mustermann",
-        role: "CEO",
-        company: "Future Company",
-    },
-];
+export default function Testimonials({ testimonials = [] }) {
 
-export default function Testimonials() {
     const [activeIndex, setActiveIndex] = useState(0);
+
+
+    /*
+     * No testimonials available.
+     */
+
+    if (testimonials.length === 0) {
+        return null;
+    }
+
 
     const current = testimonials[activeIndex];
 
+
+    /*
+     * Navigation
+     */
+
     const next = () => {
+
         setActiveIndex(
-            (prev) => (prev + 1) % testimonials.length
+            (prev) =>
+                (prev + 1) % testimonials.length
         );
+
     };
 
+
     const previous = () => {
+
         setActiveIndex(
             (prev) =>
                 (prev - 1 + testimonials.length) %
                 testimonials.length
         );
+
     };
+
+
+    /*
+     * Progress
+     */
 
     const progress =
         ((activeIndex + 1) / testimonials.length) * 100;
 
+
+    /*
+     * Get readable company name from URL.
+     *
+     * https://vjf.de
+     * → vjf
+     *
+     * https://www.example.com
+     * → example
+     */
+
+    const getCompanyName = (url) => {
+
+        if (!url) {
+            return "";
+        }
+
+        try {
+
+            const hostname =
+                new URL(url).hostname
+                    .replace(/^www\./, "");
+
+            return hostname.split(".")[0];
+
+        } catch {
+
+            return url;
+
+        }
+
+    };
+
+
+    const companyName =
+        getCompanyName(current.company_url);
+
+
     return (
+
         <section
             className="testimonials"
             id="testimonials"
         >
+
             <div className="testimonials__container">
 
-                {/* HEADER */}
+
+                {/* =========================================
+                    HEADER
+                ========================================= */}
 
                 <header className="testimonials__header">
+
                     <div>
+
                         <span className="testimonials__eyebrow">
                             TESTIMONIALS
                         </span>
 
                         <p className="testimonials__description">
-                            A few words from people I've had the opportunity to work with.
-                        </p>    
+                            A few words from people I've had the
+                            opportunity to work with.
+                        </p>
+
                     </div>
+
                 </header>
 
 
-                {/* CARD */}
+                {/* =========================================
+                    CARD
+                ========================================= */}
 
                 <div className="testimonials__card">
+
+
+                    {/* Quote mark */}
 
                     <div className="testimonials__quote-mark">
                         “
                     </div>
 
 
+                    {/* =====================================
+                        CONTENT
+                    ===================================== */}
+
                     <div
                         key={activeIndex}
                         className="testimonials__content"
                     >
 
-                        {/* QUOTE */}
+
+                        {/* Quote */}
 
                         <blockquote className="testimonials__quote">
-                            {current.quote}
+                            {current.testimonial_text}
                         </blockquote>
 
 
-                        {/* AUTHOR */}
+                        {/* =================================
+                            AUTHOR
+                        ================================= */}
 
                         <div className="testimonials__author">
 
-                            <div className="testimonials__author-info">
-                                <strong className="testimonials__author-name">
-                                    {current.name}
-                                </strong>
 
-                                <span className="testimonials__author-role">
-                                    {current.role}
-                                    {" · "}
-                                    {current.company}
-                                </span>
+                            {/* Author details */}
+
+                            <div className="testimonials__author-details">
+
+
+                                {/* Image */}
+
+                                <div className="testimonials__author-image">
+
+                                    {current.image && (
+
+                                        <img
+                                            src={current.image}
+                                            alt={current.author}
+                                        />
+
+                                    )}
+
+                                </div>
+
+
+                                {/* Author information */}
+
+                                <div className="testimonials__author-info">
+
+                                    <strong className="testimonials__author-name">
+                                        {current.author}
+                                    </strong>
+
+
+                                    {/* Role + Company */}
+
+                                    <span className="testimonials__author-role">
+
+                                        {current.author_role}
+
+                                        {current.company_url && (
+
+                                            <>
+                                                {" · "}
+
+                                                <a
+                                                    href={current.company_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    {companyName}
+                                                </a>
+                                            </>
+
+                                        )}
+
+                                    </span>
+
+
+                                    {/* LinkedIn */}
+
+                                    {current.linkedin && (
+
+                                        <a
+                                            className="testimonials__author-linkedin"
+                                            href={current.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`${current.author} on LinkedIn`}
+                                        >
+                                            LinkedIn
+                                        </a>
+
+                                    )}
+
+                                </div>
+
                             </div>
 
 
-                            {/* NAVIGATION */}
+                            {/* =================================
+                                NAVIGATION
+                            ================================= */}
 
                             <div className="testimonials__navigation">
 
@@ -107,14 +243,17 @@ export default function Testimonials() {
                                     type="button"
                                     onClick={previous}
                                     aria-label="Previous testimonial"
+                                    disabled={testimonials.length <= 1}
                                 >
                                     ←
                                 </button>
+
 
                                 <button
                                     type="button"
                                     onClick={next}
                                     aria-label="Next testimonial"
+                                    disabled={testimonials.length <= 1}
                                 >
                                     →
                                 </button>
@@ -126,31 +265,47 @@ export default function Testimonials() {
                     </div>
 
 
-                    {/* PROGRESS */}
+                    {/* =====================================
+                        FOOTER / PROGRESS
+                    ===================================== */}
 
                     <div className="testimonials__footer">
 
                         <div className="testimonials__progress">
 
+
+                            {/* Current */}
+
                             <span className="testimonials__progress-count">
-                                {String(activeIndex + 1).padStart(
-                                    2,
-                                    "0"
-                                )}
+
+                                {String(
+                                    activeIndex + 1
+                                ).padStart(2, "0")}
+
                             </span>
 
+
+                            {/* Progress line */}
+
                             <div className="testimonials__progress-line">
+
                                 <span
                                     style={{
                                         width: `${progress}%`,
                                     }}
                                 />
+
                             </div>
 
+
+                            {/* Total */}
+
                             <span className="testimonials__progress-count">
+
                                 {String(
                                     testimonials.length
                                 ).padStart(2, "0")}
+
                             </span>
 
                         </div>
@@ -160,6 +315,8 @@ export default function Testimonials() {
                 </div>
 
             </div>
+
         </section>
+
     );
 }

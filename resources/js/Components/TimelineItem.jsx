@@ -1,31 +1,31 @@
 export default function TimelineItem({
-    year,
-    title,
-    institution,
-    description,
-    tags = [],
+    education,
     index,
     total,
     progress = 0,
 }) {
-
-    /*
-     * Calculate when this item's dot
-     * should become active.
-     */
-
     const itemProgress =
         total > 1
             ? (index / (total - 1)) * 100
             : 0;
 
+    const active = progress >= itemProgress;
 
-    const active =
-        progress >= itemProgress;
+    const formatDate = (date) => {
+        if (!date) return "Present";
 
+        return new Date(date).toLocaleDateString("en-US", {
+            month: "short",
+            year: "numeric",
+        });
+    };
+
+    const start = formatDate(education.start);
+    const end = education.complete
+        ? formatDate(education.end)
+        : "Present";
 
     return (
-
         <article
             className={
                 active
@@ -33,63 +33,41 @@ export default function TimelineItem({
                     : "timeline-item"
             }
         >
-
             {/* Marker */}
 
             <div className="timeline-item__marker">
-
                 <span className="timeline-item__dot" />
-
             </div>
-
 
             {/* Content */}
 
             <div className="timeline-item__content">
 
                 <div className="timeline-item__year">
-                    {year}
+                    {start} — {end}
                 </div>
 
-
                 <h3 className="timeline-item__title">
-                    {title}
+                    {education.title}
                 </h3>
 
-
                 <span className="timeline-item__institution">
-                    {institution}
+                    {education.institution}
                 </span>
 
-
-                {description && (
-
-                    <p className="timeline-item__description">
-                        {description}
-                    </p>
-
+                {education.location && (
+                    <span className="timeline-item__location">
+                        {education.location}
+                    </span>
                 )}
 
-
-                {tags.length > 0 && (
-
-                    <div className="timeline-item__tags">
-
-                        {tags.map((tag) => (
-
-                            <span key={tag}>
-                                {tag}
-                            </span>
-
-                        ))}
-
-                    </div>
-
+                {education.degree && (
+                    <p className="timeline-item__description">
+                        {education.degree}
+                    </p>
                 )}
 
             </div>
-
         </article>
-
     );
 }

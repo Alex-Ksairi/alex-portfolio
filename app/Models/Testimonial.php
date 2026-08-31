@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Skill;
 
-class Project extends Model
+class Testimonial extends Model
 {
     protected $fillable = [
-        'title',
-        'slug',
-        'description',
+        'testimonial_text',
+        'author',
         'image',
-        'url',
+        'company_url',
+        'author_role',
+        'linkedin',
         'featured',
-        'complete',
         'sort_order',
     ];
 
@@ -22,12 +21,6 @@ class Project extends Model
     {
         return [
             'featured' => 'boolean',
-            'complete' => 'boolean',
         ];
-    }
-
-    public function skills()
-    {
-        return $this->belongsToMany(Skill::class);
     }
 }
